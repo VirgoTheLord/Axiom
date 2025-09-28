@@ -106,6 +106,6 @@ Deploy instantly to Vercel:
 
 ### Images
 
-![Main](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184517.png, "Optional title")
-![Tablet](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184532.png, "Optional title")
-![Mobile](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184559.png, "Optional title")
+![Main](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184517.png "Optional title")
+![Tablet](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184532.png "Optional title")
+![Mobile](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184559.png "Optional title")
