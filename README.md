@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pulse - Token Dashboard
 
-## Getting Started
+A modern, responsive cryptocurrency token monitoring dashboard built with Next.js 15 and React 19. Track new token pairs, monitor tokens in their final stretch, and view migrated tokens across different market stages.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Multi-Category Token Tracking**: Monitor tokens across three categories:
+
+  - 🆕 **New Pairs**: Recently launched tokens
+  - 🎯 **Final Stretch**: Tokens approaching key milestones
+  - ✅ **Migrated**: Successfully migrated tokens
+
+- **Responsive Design**:
+
+  - Desktop: Three-column layout with full token tables
+  - Tablet: Optimized two-column view
+  - Mobile: Single-column card-based interface
+
+- **Real-time Data**: Track key metrics including:
+
+  - Market cap and volume
+  - User count and transaction history
+  - Age and performance indicators
+  - Shield status and security metrics
+
+- **Interactive UI**: Built with Radix UI components for accessibility and user experience
+
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 15 with Turbopack
+- **Runtime**: React 19
+- **Styling**: Tailwind CSS 4
+- **UI Library**: shadcn/ui components
+- **UI Primitives**: Radix UI
+- **Icons**: Lucide React
+- **Language**: TypeScript 5
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd axiom
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📜 Available Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm start` - Start the production server
+- `npm run lint` - Run ESLint for code quality
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Main dashboard page
+├── components/            # React components
+│   ├── ui/               # UI primitives
+│   └── [components]      # Feature components
+└── lib/                  # Utilities and data
+    ├── data.ts           # Token data
+    ├── types.ts          # TypeScript types
+    └── utils.ts          # Utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Component Architecture
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **TokenTable**: Desktop table view with sorting and filtering
+- **MobileTokenView**: Mobile-optimized card layout
+- **TabletTokenView**: Tablet-specific responsive design
+- **PulseHeader**: Application header with branding
+- **UI Components**: Built with shadcn/ui components and Radix UI primitives
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Deployment
 
-## Learn More
+### Vercel (Recommended)
 
-To learn more about Next.js, take a look at the following resources:
+Deploy instantly to Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=<your-repo-url>)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Manual Deployment
 
-## Deploy on Vercel
+1. Build the application: `npm run build`
+2. Start the production server: `npm start`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Built with ❤️ using Next.js and React
