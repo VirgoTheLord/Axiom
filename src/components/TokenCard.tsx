@@ -63,7 +63,7 @@ export const TokenCard = React.memo(
     return (
       <div
         className={cn(
-          "bg-[#1A1B26] text-gray-300 p-2.5 border border-[#2a2a2a] font-sans w-full max-w-lg mx-auto",
+          "bg-black text-gray-300 p-2.25 border border-[#2a2a2a] font-sans w-full max-w-lg mx-auto",
           className
         )}
       >
