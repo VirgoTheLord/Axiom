@@ -104,18 +104,8 @@ Deploy instantly to Vercel:
 1. Build the application: `npm run build`
 2. Start the production server: `npm start`
 
-## 🤝 Contributing
+### Images
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Built with ❤️ using Next.js and React
+![Main](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184517.png, "Optional title")
+![Tablet](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184532.png, "Optional title")
+![Mobile](https://raw.githubusercontent.com/VirgoTheLord/CDN/main/uploads/Screenshot%202025-09-28%20184559.png, "Optional title")
