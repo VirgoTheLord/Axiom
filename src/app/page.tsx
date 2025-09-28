@@ -2,58 +2,64 @@
 
 "use client";
 
-import { allTokensData } from "@/lib/data";
+import { newPairsData, finalStretchData, migratedTokensData } from "@/lib/data";
 import { TokenTable } from "@/components/TokenTable";
 import { ActionGroup, FilterButton } from "@/components/TokenTableActions";
 import { PulseHeader } from "@/components/PulseHeader";
 import { MobileTokenView } from "@/components/MobileTokenView";
+import { TabletTokenView } from "@/components/TabletTokenView";
 
 export default function Home() {
   return (
-    <div className="bg-black min-h-screen w-full flex flex-col p-3">
-      {/* Header only on desktop */}
+    <div className="bg-black min-h-screen w-full flex flex-col p-2 md:p-3 lg:p-4">
+      {/* Header on tablet and desktop */}
       <div className="hidden md:block">
         <PulseHeader />
       </div>
 
-      {/* Desktop Layout - Hidden on mobile */}
-      <div className="hidden md:flex flex-grow">
+      {/* Desktop Layout - Hidden on tablet and mobile */}
+      <div className="hidden lg:flex flex-grow">
         <TokenTable
           title="New Pairs"
-          tokens={allTokensData}
+          tokens={newPairsData}
           actions={
             <>
               <ActionGroup />
               <FilterButton />
             </>
           }
-          className="flex-1"
+          className="flex-1 min-w-0"
         />
         <TokenTable
           title="Final Stretch"
-          tokens={allTokensData}
+          tokens={finalStretchData}
           actions={
             <>
               <ActionGroup />
               <FilterButton />
             </>
           }
-          className="flex-1"
+          className="flex-1 min-w-0"
         />
         <TokenTable
           title="Migrated"
-          tokens={allTokensData}
+          tokens={migratedTokensData}
           actions={
             <>
               <ActionGroup />
               <FilterButton />
             </>
           }
-          className="flex-1"
+          className="flex-1 min-w-0"
         />
       </div>
 
-      {/* Mobile Layout - Hidden on desktop, no separate header */}
+      {/* Tablet Layout - Visible on tablet only */}
+      <div className="hidden md:block lg:hidden h-full">
+        <TabletTokenView />
+      </div>
+
+      {/* Mobile Layout - Hidden on tablet and desktop */}
       <div className="md:hidden h-full">
         <MobileTokenView />
       </div>

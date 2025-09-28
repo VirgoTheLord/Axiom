@@ -1,40 +1,32 @@
-// components/MobileTokenView.tsx
+// components/TabletTokenView.tsx
 "use client";
 
 import { useState } from "react";
-import { MobileTokenCard } from "@/components/MobileTokenCard";
+import { TokenCard } from "@/components/TokenCard";
 import { newPairsData, finalStretchData, migratedTokensData } from "@/lib/data";
-import type { TokenCardProps } from "@/lib/types";
 
-interface TabData {
-  id: string;
-  label: string;
-  tokens: TokenCardProps[];
-}
-
-const tabs: TabData[] = [
+const tabs = [
   { id: "new", label: "New Pairs", tokens: newPairsData },
   { id: "final", label: "Final Stretch", tokens: finalStretchData },
   { id: "migrated", label: "Migrated", tokens: migratedTokensData },
 ];
 
-export const MobileTokenView = () => {
+export const TabletTokenView = () => {
   const [activeTab, setActiveTab] = useState("new");
-
   const activeTabData = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
   return (
     <div className="flex flex-col h-full">
-      {/* Mobile Tab Navigation - Small and clean at top left */}
-      <div className="flex bg-black rounded-lg p-0.5 mb-4 w-fit">
+      {/* Tab Navigation - Desktop style horizontal tabs */}
+      <div className="flex bg-[#1a1a1a] border-b border-[#333] mb-4 overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+            className={`flex-shrink-0 px-6 py-4 text-sm font-medium transition-colors whitespace-nowrap border-b-2 ${
               activeTab === tab.id
-                ? "bg-[#2a2a2a] text-white"
-                : "text-gray-400 hover:text-white"
+                ? "text-white border-white"
+                : "text-gray-400 border-transparent hover:text-white"
             }`}
           >
             {tab.label}
@@ -42,11 +34,15 @@ export const MobileTokenView = () => {
         ))}
       </div>
 
-      {/* Active Tab Content - Full width cards */}
+      {/* Full width cards for tablet */}
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col w-full">
           {activeTabData.tokens.map((token, index) => (
-            <MobileTokenCard key={index} {...token} className="w-full" />
+            <TokenCard
+              key={index}
+              {...token}
+              className="w-full max-w-none mx-0"
+            />
           ))}
         </div>
       </div>

@@ -18,8 +18,8 @@ export const TokenTable = React.memo(
     return (
       <Card
         className={cn(
-          // 👇 Using a custom width that is between md and lg
-          "w-full max-w-[31.5rem] bg-black border-[#2a2a2a] flex flex-col h-[calc(100vh-11rem)]",
+          // Responsive width - shrinks and grows smoothly with container
+          "w-full max-w-none lg:max-w-md xl:max-w-lg bg-black border-[#2a2a2a] flex flex-col h-[calc(100vh-11rem)]",
           className
         )}
       >
