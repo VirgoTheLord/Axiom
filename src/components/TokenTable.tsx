@@ -18,7 +18,8 @@ export const TokenTable = React.memo(
     return (
       <Card
         className={cn(
-          "w-full max-w-lg bg-[#1A1B26] border-[#2a2a2a] flex flex-col h-[calc(100vh-6rem)]",
+          // 👇 Using a custom width that is between md and lg
+          "w-full max-w-[31.5rem] bg-[#1A1B26] border-[#2a2a2a] flex flex-col h-[calc(100vh-10rem)]",
           className
         )}
       >
@@ -30,7 +31,6 @@ export const TokenTable = React.memo(
         </CardHeader>
 
         <CardContent className="flex-grow overflow-hidden">
-          {/* Apply the custom-scrollbar class here */}
           <div className="overflow-y-auto h-full custom-scrollbar">
             <div className="flex flex-col">
               {tokens.map((token) => (
