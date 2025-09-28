@@ -2,6 +2,7 @@
 
 "use client";
 
+import { useState, useEffect } from "react";
 import { newPairsData, finalStretchData, migratedTokensData } from "@/lib/data";
 import { TokenTable } from "@/components/TokenTable";
 import { ActionGroup, FilterButton } from "@/components/TokenTableActions";
@@ -10,6 +11,17 @@ import { MobileTokenView } from "@/components/MobileTokenView";
 import { TabletTokenView } from "@/components/TabletTokenView";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial data loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 second loading state
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-black min-h-screen w-full flex flex-col p-2 md:p-3 lg:p-4">
       {/* Header on tablet and desktop */}
@@ -22,6 +34,7 @@ export default function Home() {
         <TokenTable
           title="New Pairs"
           tokens={newPairsData}
+          isLoading={isLoading}
           actions={
             <>
               <ActionGroup />
@@ -33,6 +46,7 @@ export default function Home() {
         <TokenTable
           title="Final Stretch"
           tokens={finalStretchData}
+          isLoading={isLoading}
           actions={
             <>
               <ActionGroup />
@@ -44,6 +58,7 @@ export default function Home() {
         <TokenTable
           title="Migrated"
           tokens={migratedTokensData}
+          isLoading={isLoading}
           actions={
             <>
               <ActionGroup />
@@ -56,12 +71,12 @@ export default function Home() {
 
       {/* Tablet Layout - Visible on tablet only */}
       <div className="hidden md:block lg:hidden h-full">
-        <TabletTokenView />
+        <TabletTokenView isLoading={isLoading} />
       </div>
 
       {/* Mobile Layout - Hidden on tablet and desktop */}
       <div className="md:hidden h-full">
-        <MobileTokenView />
+        <MobileTokenView isLoading={isLoading} />
       </div>
     </div>
   );

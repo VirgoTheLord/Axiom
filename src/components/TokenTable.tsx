@@ -4,6 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import type { TokenCardProps } from "@/lib/types";
 import { TokenCard } from "@/components/TokenCard";
+import { TokenCardSkeleton } from "@/components/LoadingShimmer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export interface TokenTableProps {
@@ -11,10 +12,17 @@ export interface TokenTableProps {
   tokens: TokenCardProps[];
   actions?: React.ReactNode;
   className?: string;
+  isLoading?: boolean;
 }
 
 export const TokenTable = React.memo(
-  ({ title, tokens, actions, className }: TokenTableProps) => {
+  ({
+    title,
+    tokens,
+    actions,
+    className,
+    isLoading = false,
+  }: TokenTableProps) => {
     return (
       <Card
         className={cn(
@@ -33,9 +41,13 @@ export const TokenTable = React.memo(
         <CardContent className="flex-grow overflow-hidden">
           <div className="overflow-y-auto h-full custom-scrollbar">
             <div className="flex flex-col">
-              {tokens.map((token) => (
-                <TokenCard key={token.address} {...token} />
-              ))}
+              {isLoading
+                ? Array.from({ length: 8 }).map((_, index) => (
+                    <TokenCardSkeleton key={index} />
+                  ))
+                : tokens.map((token) => (
+                    <TokenCard key={token.address} {...token} />
+                  ))}
             </div>
           </div>
         </CardContent>

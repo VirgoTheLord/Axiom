@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { TokenCard } from "@/components/TokenCard";
+import { TokenCardSkeleton } from "@/components/LoadingShimmer";
 import { newPairsData, finalStretchData, migratedTokensData } from "@/lib/data";
 
 const tabs = [
@@ -11,7 +12,13 @@ const tabs = [
   { id: "migrated", label: "Migrated", tokens: migratedTokensData },
 ];
 
-export const TabletTokenView = () => {
+interface TabletTokenViewProps {
+  isLoading?: boolean;
+}
+
+export const TabletTokenView = ({
+  isLoading = false,
+}: TabletTokenViewProps) => {
   const [activeTab, setActiveTab] = useState("new");
   const activeTabData = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
@@ -37,13 +44,20 @@ export const TabletTokenView = () => {
       {/* Full width cards for tablet */}
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col w-full">
-          {activeTabData.tokens.map((token, index) => (
-            <TokenCard
-              key={index}
-              {...token}
-              className="w-full max-w-none mx-0"
-            />
-          ))}
+          {isLoading
+            ? Array.from({ length: 8 }).map((_, index) => (
+                <TokenCardSkeleton
+                  key={index}
+                  className="w-full max-w-none mx-0 mb-3"
+                />
+              ))
+            : activeTabData.tokens.map((token, index) => (
+                <TokenCard
+                  key={index}
+                  {...token}
+                  className="w-full max-w-none mx-0"
+                />
+              ))}
         </div>
       </div>
     </div>

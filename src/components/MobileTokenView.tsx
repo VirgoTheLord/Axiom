@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { MobileTokenCard } from "@/components/MobileTokenCard";
+import { MobileTokenCardSkeleton } from "@/components/LoadingShimmer";
 import { newPairsData, finalStretchData, migratedTokensData } from "@/lib/data";
 import type { TokenCardProps } from "@/lib/types";
 
@@ -18,7 +19,13 @@ const tabs: TabData[] = [
   { id: "migrated", label: "Migrated", tokens: migratedTokensData },
 ];
 
-export const MobileTokenView = () => {
+interface MobileTokenViewProps {
+  isLoading?: boolean;
+}
+
+export const MobileTokenView = ({
+  isLoading = false,
+}: MobileTokenViewProps) => {
   const [activeTab, setActiveTab] = useState("new");
 
   const activeTabData = tabs.find((tab) => tab.id === activeTab) || tabs[0];
@@ -45,9 +52,13 @@ export const MobileTokenView = () => {
       {/* Active Tab Content - Full width cards */}
       <div className="flex-1 overflow-y-auto">
         <div className="flex flex-col w-full">
-          {activeTabData.tokens.map((token, index) => (
-            <MobileTokenCard key={index} {...token} className="w-full" />
-          ))}
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <MobileTokenCardSkeleton key={index} className="w-full mb-3" />
+              ))
+            : activeTabData.tokens.map((token, index) => (
+                <MobileTokenCard key={index} {...token} className="w-full" />
+              ))}
         </div>
       </div>
     </div>
