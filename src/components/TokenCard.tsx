@@ -63,7 +63,7 @@ export const TokenCard = React.memo(
     return (
       <div
         className={cn(
-          "bg-[#1A1B26] text-gray-300 p-2.5 rounded-lg border border-[#2a2a2a] font-sans w-full max-w-lg mx-auto",
+          "bg-[#1A1B26] text-gray-300 p-2.5 border border-[#2a2a2a] font-sans w-full max-w-lg mx-auto",
           className
         )}
       >
@@ -157,9 +157,9 @@ export const TokenCard = React.memo(
 
               <Button
                 onClick={onSolButtonClick}
-                className="bg-[#526fff] hover:bg-[#526fff]/90 text-black font-bold h-6 text-sm px-2.5 rounded-2xl"
+                className="bg-[#526fff] hover:bg-[#526fff]/90 text-black font-bold h-6 text-sm px-1 rounded-2xl"
               >
-                <Zap className="h-3.5 w-3.5 mr-1 text-black" /> {solAmount} SOL
+                <Zap className="h-3.5 w-3.5 text-black" /> {solAmount} SOL
               </Button>
             </div>
           </div>

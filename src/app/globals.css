@@ -120,3 +120,23 @@
     @apply bg-background text-foreground;
   }
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Exact width from your image */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1b26; /* Background of the scrollbar track, matching your card */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #4a4b56; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+  border: 1px solid #1a1b26; /* Small border matching track color */
+}
+
+/* For Firefox compatibility (less detailed styling) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4a4b56 #1a1b26;
+}
